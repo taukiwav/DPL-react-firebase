@@ -20,6 +20,7 @@ export default function SignIn() {
     }
     localStorage.setItem("auth", JSON.stringify(authInfo))
     navigate("/add-match")
+    return(authInfo) //debugging what seems to be JSON issue?
   }
 
   if (isAuth) {
