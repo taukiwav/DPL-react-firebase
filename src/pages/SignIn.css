@@ -1,0 +1,33 @@
+.sign-in {
+    display: flex;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.sign-in {
+    background-image: url(../assets/images/img-8.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in p {
+    font-size: 30px;
+}
+
+@media screen and (max-width: 960px) {
+    .sign-in {
+        font-size: 50px;
+    }
+
+    .sign-in p {
+        font-size: 20px;
+    }
+
+}

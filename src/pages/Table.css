@@ -1,0 +1,66 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    align-items: center;
+    padding-top: 70px;
+    /* justify-content: center; */
+    font-size: 3rem;
+}
+
+.table {
+    background-image: url(../assets/images/img-3.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-size: 20px;
+}
+
+.table-container {
+    background-color: #242424;
+    border-radius: 10px;
+    width: 90vw;
+    padding: 15px;
+}
+
+.table-contents {
+    width: 100%;
+}
+
+.table-contents thead {
+    text-align: left;
+}
+
+.table-contents tr {
+    padding: 10px;
+}
+
+.table-contents th {
+    background-color: #181818;
+}
+
+/* code below to make solid line across rows */
+
+.table-contents {
+    border-collapse: collapse;
+}
+.table-contents tr {
+    border-bottom: 2px solid rgb(29, 27, 27);
+}
+
+.table-numbers {
+    text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+    .table {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .table {
+        font-size: 12px;
+    }
+}

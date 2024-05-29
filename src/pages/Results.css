@@ -1,9 +1,11 @@
 .results {
     display:flex;
+    flex-direction: column;
     height: 90vh;
     align-items: center;
-    justify-content: center;
-    font-size: 2rem;
+    padding-top: 70px;
+    /* justify-content: center; */
+    font-size: 3rem;
 
 
     background-image: url(../assets/images/img-2.jpg);
@@ -11,78 +13,72 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-}
-
-.matches {
-    position: relative;
-    top: 0vh;
-}
-
-.matches h3 {
-    font-size: 100px;
-    text-align: center;
-}
-
-.matches ul {
-    width: 80vw;
     font-size: 20px;
+}
+
+.results-container {
     background-color: #242424;
-    list-style: none;
     border-radius: 10px;
-    border: 1px solid #fff;
+    width: 90vw;
+    padding: 15px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+/* .results-container table {
+} */
+
+.results-contents {
+    width: 100%;
 }
 
-.match-item {
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-    text-align: center;
-    width: 80vw;
-    border-bottom: 1px solid #fff;;
-    white-space: nowrap;
+/* .results-contents th {
+    background-color: #181818;
+} */
+
+.results-contents td {
+    align-items: center;
 }
 
-.match-item li {
-    padding: 10px;
+.results-contents {
+    /* this creates space between rows */
+    border-collapse: separate;
+    border-spacing: 0px 15px;
+}
+
+.results-contents tr {
+    border-bottom: 2px solid rgb(29, 27, 27);
 }
 
 .score {
-    border-radius: 10px;
     background-color: #5e1a7e;
-    width: 10vw;
+    border-radius: 10px;
+    text-align: center;
+    
 }
 
 .home-team {
-    width: 30vw;
     text-align: right;
+    padding-right: 20px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
 }
 
 .away-team {
-    width: 30vw;
     text-align: left;
+    padding-left: 20px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
 }
 
-/* .match-item:hover {
-    background-image: linear-gradient(136.89deg, rgb(5, 240, 255) -50%, rgb(115, 103, 255) 40.0%, rgb(150, 60, 255) 56.4%, rgb(150, 60, 255) 56.4%, rgb(115, 103, 255) 80.16%, rgb(5, 240, 255) 120%);
-} */
-
-@media screen and (max-width: 760px) {
-    .matches h3 {
-        font-size: 70px;
-    }
-    .match-item li {
+@media screen and (max-width: 960px) {
+    .results {
         font-size: 15px;
     }
 }
 
-@media screen and (max-width: 640px) {
-
-    .match-item li {
+@media screen and (max-width: 760px) {
+    .results {
         font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    .match-item li {
-        font-size: 10px;
     }
 }

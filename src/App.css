@@ -8,12 +8,9 @@
 
 .home,
 .fixtures,
-.table,
 .stats,
 .clubs,
-.highlights,
-.sign-in,
-.add-match {
+.highlights {
     display: flex;
     height: 90vh;
     align-items: center;
@@ -28,15 +25,6 @@
     background-repeat: no-repeat;
     color: #fff;
     font-size: 80px;
-}
-
-.table {
-    background-image: url(assets/images/img-3.jpg);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
 }
 
 .stats {
@@ -64,65 +52,4 @@
     background-repeat: no-repeat;
     color: #fff;
     font-size: 69px;
-}
-
-.sign-in {
-    background-image: url(assets/images/img-8.jpg);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 70px;
-    display: flex;
-    flex-direction: column;
-}
-
-.sign-in p {
-    font-size: 30px;
-}
-
-.add-match {
-    background-image: url(assets/images/img-7.jpg);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 70px;
-}
-
-.container {
-    /* background-color: #5e1a7e; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.add-match-data {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    font-size: 20px;
-    background-color: #242424;
-    width: 50vw;
-    align-items: center;    
-}
-
-
-.add-match-data input {
-    margin-bottom: 20px;
-}
-
-
-@media screen and (max-width: 960px) {
-    .sign-in {
-        font-size: 50px;
-    }
-
-    .sign-in p {
-        font-size: 20px;
-    }
-
-    .add-match {
-        font-size: 50px;
-    }
 }
