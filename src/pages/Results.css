@@ -67,6 +67,10 @@
     .results {
         font-size: 15px;
     }
+
+    .results-container h2 {
+        font-size: 15px;
+    }
 }
 
 @media screen and (max-width: 760px) {

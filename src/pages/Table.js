@@ -31,6 +31,10 @@ export default function Table() {
     shortColName()
   })
 
+  const getGDClass = (goalDiff) => {
+    return goalDiff > 0 ? 'positive-gd' : goalDiff < 0 ? 'negative-gd' : ''
+  }
+
   const [teams, setTeams] = useState([])
 
   useEffect(() => {
@@ -40,6 +44,19 @@ export default function Table() {
         id: doc.id,
         ...doc.data()
       }))
+
+      // eslint-disable-next-line array-callback-return
+      teamsData.sort((a,b) => {
+        if (b.points === a.points) {
+          if (b.goalDifference !== a.goalDifference) {
+            return b.goalDifference - a.goalDifference;
+          } else if (b.goalsFor !== a.goalsFor) {
+            return b.goalsFor - a.goalsFor;
+          } else {
+            return a.goalDifference - b.goalDifference;
+          }
+        }
+      })
       setTeams(teamsData)
     }
     fetchData()
@@ -78,7 +95,7 @@ export default function Table() {
                 <td className="table-numbers">{team.losses}</td>
                 <td className="table-numbers">{team.goalsFor}</td>
                 <td className="table-numbers">{team.goalsAgainst}</td>
-                <td className="table-numbers">{team.goalDifference}</td>
+                <td className={`${"table-numbers"} ${getGDClass(team.goalDifference)}`}>{team.goalDifference}</td>
                 <td className="table-numbers">{team.points}</td>
               </tr>
             ))}
