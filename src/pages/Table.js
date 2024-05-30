@@ -5,6 +5,32 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
 export default function Table() {
+  const [played,setPlayed] = useState("Played")
+  const [won, setWon] = useState("Won")
+  const [drawn,setDrawn] = useState("Drawn")
+  const [lost, setLost] = useState("Lost")
+  const [points, setPoints] = useState("Points")
+
+  const shortColName = () => {
+    if(window.innerWidth <= 520) {
+      setPlayed("Pl")
+      setWon("W")
+      setDrawn("D")
+      setLost("L")
+      setPoints("Pts")
+    } else {
+      setPlayed("Played")
+      setWon("Won")
+      setDrawn("Drawn")
+      setLost("Lost")
+      setPoints("Points")
+    }
+  }
+
+  useEffect(() => {
+    shortColName()
+  })
+
   const [teams, setTeams] = useState([])
 
   useEffect(() => {
@@ -19,6 +45,9 @@ export default function Table() {
     fetchData()
   },[])
 
+
+  window.addEventListener("resize", shortColName);
+
   return (
     <div className="table">
       <div className="table-container">
@@ -27,22 +56,22 @@ export default function Table() {
           <thead>
             <tr>
               <th>Pos</th>
-              <th>Club</th>
-              <th className="table-numbers">Played</th>
-              <th className="table-numbers">Won</th>
-              <th className="table-numbers">Drawn</th>
-              <th className="table-numbers">Lost</th>
+              <th className="table-club">Club</th>
+              <th className="table-numbers">{played}</th>
+              <th className="table-numbers">{won}</th>
+              <th className="table-numbers">{drawn}</th>
+              <th className="table-numbers">{lost}</th>
               <th className="table-numbers">GF</th>
               <th className="table-numbers">GA</th>
               <th className="table-numbers">GD</th>
-              <th className="table-numbers">Points</th>
+              <th className="table-numbers">{points}</th>
             </tr>
           </thead>
           <tbody>
             {teams.map((team,index) => (
               <tr key={team.id}>
                 <td>{index + 1}</td>
-                <td>{team.teamName}</td>
+                <td className="table-club">{team.teamName}</td>
                 <td className="table-numbers">{team.played}</td>
                 <td className="table-numbers">{team.wins}</td>
                 <td className="table-numbers">{team.draws}</td>
