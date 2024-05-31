@@ -6,15 +6,15 @@ import { useAddMatch } from "../hooks/useAddMatch";
 import { useAddTeam } from "../hooks/useAddTeam";
 import { useGetTeams } from "../hooks/useGetTeams";
 import ProcessResult from "../hooks/useProcessResult";
-import "../App.css";
 import "./AddMatch.css"
+import "../App.css";
+import "../components/Button.css";
 
 
 export default function AddMatch() {
   const {addMatch} = useAddMatch()
   const {addTeam} = useAddTeam()
-  // const {teams} = useGetTeams()
-  // changing the above line to implement fetchData after a submit
+
   const [teams, setTeams] = useState([])
 
   const [homeTeam, setHomeTeam] = useState("")
@@ -90,42 +90,49 @@ export default function AddMatch() {
     <div className="add-match">
       <div className="container">
         <h1>ADD MATCH</h1>
-        <form className="add-match-data" onSubmit={onSubmit}>
-          <label>Home Team</label>
-          <input
-            type="text"
-            placeholder="Home Team"
-            value={homeTeam}
-            required
-            onChange={(e) => setHomeTeam(e.target.value)}
-          />
-          <label>Home Goals</label>
-          <input
-            type="number"
-            placeholder="Home Goals"
-            value={homeGoals}
-            required
-            onChange={(e) => setHomeGoals(e.target.valueAsNumber)} 
-          />
-          <label>Away Team</label>
-          <input
-            type="text"
-            placeholder="Away Team"
-            value={awayTeam}
-            required
-            onChange={(e) => setAwayTeam(e.target.value)}
-          />
-          <label>Away Goals</label>
-          <input
-            type="number"
-            placeholder="Away Goals"
-            value={awayGoals}
-            required
-            onChange={(e) => setAwayGoals(e.target.valueAsNumber)}
-          />
-
-          <button type="submit">Add Match Data</button>
+        <form id="match-form" className="add-match-data" onSubmit={onSubmit}>
+            <div className="match-input-sections">
+              <label>Home Team</label>
+              <input
+                type="text"
+                placeholder="Type Team Name Here"
+                value={homeTeam}
+                required
+                onChange={(e) => setHomeTeam(e.target.value)}
+              />
+            </div>
+            <div className="match-input-sections">
+              <label>Home Goals</label>
+              <input
+                type="number"
+                placeholder="# Of Goals Here"
+                value={homeGoals}
+                required
+                onChange={(e) => setHomeGoals(e.target.valueAsNumber)} 
+              />
+            </div>
+            <div className="match-input-sections">
+              <label>Away Team</label>
+              <input
+                type="text"
+                placeholder="Type Team Name Here"
+                value={awayTeam}
+                required
+                onChange={(e) => setAwayTeam(e.target.value)}
+              />
+            </div>
+            <div className="match-input-sections">
+            <label>Away Goals</label>
+            <input
+              type="number"
+              placeholder="# Of Goals Here"
+              value={awayGoals}
+              required
+              onChange={(e) => setAwayGoals(e.target.valueAsNumber)}
+            />
+            </div>
         </form>
+          <button type="submit" form="match-form" className={`${"btn--medium"} ${"btn--outline"}`}>Add Match Data</button>
       </div>
     </div>
   );

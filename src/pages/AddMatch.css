@@ -1,8 +1,12 @@
 .add-match {
     display: flex;
-    height: 90vh;
+    flex-direction: column;
+    height: auto;
     align-items: center;
-    justify-content: center;
+    /* text-align: center; */
+    /* justify-content: center; */
+    padding-top: 70px;
+    padding-bottom: 70px;
     font-size: 3rem;
 }
 
@@ -12,33 +16,91 @@
     background-size: cover;
     background-repeat: no-repeat;
     color: #fff;
-    font-size: 70px;
+    font-size: 60px;
 }
 
 .container {
-    /* background-color: #5e1a7e; */
+    background-color: #242424;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 7px 5px 5px black;
+    width: 90vw;
 }
 
+
 .add-match-data {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    justify-content: center;
     padding: 20px;
     font-size: 20px;
-    background-color: #242424;
-    width: 50vw;
+    /* background-color: #242424; */
+    width: 70vw;
     align-items: center;
+}
+.match-input-sections {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 20vw;
+    white-space: nowrap;
 }
 
 
 .add-match-data input {
     margin-bottom: 20px;
+    background-color:gray;
+    font-size: 15px;
+    text-align: left;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.add-match-data label {
+    background-color: rgb(94, 26, 126);
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+.add-match-data ::placeholder {
+    color: #3d3d3d;
+    font-size: 13px;
+}
+
+.add-match button {
+    font-size: 15px;
 }
 
 @media screen and (max-width: 960px) {
     .add-match {
         font-size: 50px;
     }
+
+    .add-match-data {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .match-input-sections {
+        width: 35vw;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .add-match {
+        font-size: 40px;
+    }
+
+    .add-match-data input {
+        font-size: 12px;
+    }
+
+    .add-match-data ::placeholder {
+        font-size: 10px;
+    }
+
 }
