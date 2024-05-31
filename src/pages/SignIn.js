@@ -30,16 +30,19 @@ export default function SignIn() {
 
   return (
     <div className="sign-in">
-      <h1>SIGN IN</h1>
-      <p>Sign in with Google to add match data</p>
-      <Button
-        className="login-btn"
-        buttonStyle="btn--alt"
-        buttonSize="btn--large"
-        onClick={signInWithGoogle}
-      >
-        Sign in with Google
-      </Button>
+      <div className="sign-in-container">
+        <h1>SIGN IN</h1>
+        <p>Sign in with Google to add match data</p>
+        <Button
+          className="login-btn"
+          buttonStyle="btn--alt"
+          buttonSize="btn--large"
+          onClick={signInWithGoogle}
+        >
+          Sign in with Google
+        </Button>
+
+      </div>
 
 
 

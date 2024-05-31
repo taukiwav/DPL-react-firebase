@@ -21,7 +21,7 @@
     border-radius: 10px;
     width: 90vw;
     padding: 15px;
-    margin-bottom: 100px;
+    margin: 0 0 100px 0;
 }
 
 .results-container h2 {
@@ -43,14 +43,14 @@
     background-color: #5e1a7e;
     border-radius: 10px;
     text-align: center;
-    width: 10vw;
+    width: 10%;
     
 }
 
 .home-team {
     text-align: right;
     padding-right: 20px;
-    width: 40vw;
+    width: 45%;
     /* padding-top: 10px;
     padding-bottom: 10px; */
 }
@@ -58,7 +58,7 @@
 .away-team {
     text-align: left;
     padding-left: 20px;
-    width: 40vw;
+    width: 45%;
     /* padding-top: 10px;
     padding-bottom: 10px; */
 }

@@ -49,6 +49,9 @@
     border-bottom: 2px solid rgb(29, 27, 27);
 }
 
+.table-position {
+    padding-left: 5px;
+}
 .table-club {
     padding-left: 5px;
     white-space: nowrap;

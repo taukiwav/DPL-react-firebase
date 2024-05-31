@@ -72,7 +72,7 @@ export default function Table() {
         <table className="table-contents">
           <thead>
             <tr>
-              <th>Pos</th>
+              <th className="table-position">Pos</th>
               <th className="table-club">Club</th>
               <th className="table-numbers">{played}</th>
               <th className="table-numbers">{won}</th>
@@ -87,7 +87,7 @@ export default function Table() {
           <tbody>
             {teams.map((team,index) => (
               <tr key={team.id}>
-                <td>{index + 1}</td>
+                <td className="table-position">{index + 1}</td>
                 <td className="table-club">{team.teamName}</td>
                 <td className="table-numbers">{team.played}</td>
                 <td className="table-numbers">{team.wins}</td>
