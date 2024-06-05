@@ -1,8 +1,8 @@
 import React from 'react'
-import '../App.css'
-import { Button } from './Button'
-import './HeroSection.css'
 import myVideo from "../assets/video-3.mp4" //moved video inside src in new folder
+import { Button } from './Button'
+import '../App.css'
+import './HeroSection.css'
 
 function HeroSection() {
   return (
