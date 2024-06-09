@@ -1,0 +1,129 @@
+.clubs {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+    /* justify-content: center; */
+
+    background-image: url(../assets/images/img-5.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.clubs-container {
+    background-color: #242424;
+    width: 90vw;
+    height: auto;
+    border-radius: 10px;
+    padding-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.clubs h1 {
+    font-size: 90px;
+    padding-bottom: 20px;
+}
+
+.clubs-list {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    text-align: center;
+    justify-items: center;
+    list-style: none;
+    width: 90vw;
+}
+
+.clubs-links img {
+    width: 90%;
+}
+    
+.clubs-zg:hover {
+    -webkit-filter: drop-shadow(5px 10px 20px #49cfff);
+    filter: drop-shadow(5px 10px 20px #49cfff);
+}
+
+.clubs-emp:hover {
+    -webkit-filter: drop-shadow(5px 10px 20px #fffb2b);
+    filter: drop-shadow(5px 10px 20px #fffb2b);
+}
+
+.clubs-int:hover {
+    -webkit-filter: drop-shadow(5px 10px 20px #d641ac);
+    filter: drop-shadow(5px 10px 20px #d641ac);
+}
+    
+.clubs-item:hover {
+    transform: scale(1.1);
+}
+
+.clubs-links {
+    aspect-ratio: 1/1.25;
+    width: 21vw;
+    text-decoration: none;
+    font-size: 22px;
+    color: white;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: visible;
+}
+
+@media screen and (max-width: 960px) {
+    .clubs h1 {
+        font-size: 70px;
+    }
+    .clubs-links {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .clubs h1 {
+        font-size: 50px;
+    }
+    .clubs-links {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .clubs-container {
+        width: 60vw;
+    }
+    .clubs h1 {
+        font-size: 45px;
+        padding-top: 20px;
+    }
+    .clubs-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        white-space: nowrap;
+        grid-gap: 20px;
+        width: 60vw;
+    }
+
+    .clubs-links {
+        width: 40vw;
+        font-size: 20px;
+    }
+
+    .clubs-zg:hover {
+        -webkit-filter: none;
+        filter: none;
+    }
+
+    .clubs-emp:hover {
+        -webkit-filter: none;
+        filter: none;
+    }
+
+    .clubs-int:hover {
+        -webkit-filter: none;
+        filter: none;
+    }
+}

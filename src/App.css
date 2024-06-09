@@ -9,7 +9,6 @@
 .home,
 .fixtures,
 .stats,
-.clubs,
 .highlights {
     display: flex;
     height: 90vh;
@@ -29,15 +28,6 @@
 
 .stats {
     background-image: url(assets/images/img-4.jpg);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
-}
-
-.clubs {
-    background-image: url(assets/images/img-5.jpg);
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
