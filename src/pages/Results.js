@@ -5,19 +5,17 @@ import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../config/firebase-config";
 
 export default function Results() {
-  // const [matches, setMatches] = useState([])
   const [groupedMatches, setGroupedMatches] = useState({})
 
   useEffect(() => {
     const fetchMatches = async () => {
-      const snapshot = await getDocs(query(collection(db, "matches"),orderBy("createdAt")))
+      const snapshot = await getDocs(query(collection(db, "matches"),orderBy("createdAt","desc")))
       const matchesData = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
-        //added line below to implement grouped by date
         date: new Date(doc.data().createdAt.seconds*1000)
       }))
-      // setMatches(matchesData)
+
       const grouped = matchesData.reduce((acc,match) => {
         const dateKey = match.date.toLocaleDateString('en-GB', {
           weekday: 'short',

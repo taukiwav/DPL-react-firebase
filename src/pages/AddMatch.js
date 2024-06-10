@@ -6,9 +6,11 @@ import { useAddMatch } from "../hooks/useAddMatch";
 import { useAddTeam } from "../hooks/useAddTeam";
 import { useGetTeams } from "../hooks/useGetTeams";
 import ProcessResult from "../hooks/useProcessResult";
+import { useAddFixture } from "../hooks/useAddFixture";
 import "./AddMatch.css"
-import "../App.css";
+import "./AddFixture.css"
 import "../components/Button.css";
+import "../App.css";
 
 
 export default function AddMatch() {
@@ -77,8 +79,31 @@ export default function AddMatch() {
     setHomeGoals("")
     setAwayTeam("")
     setAwayGoals("")
+  }
+  
+  // ############ FIXTURES ###############
+
+  const {addFixture} = useAddFixture()
+
+  const [teamOne, setTeamOne] = useState("")
+  const [teamTwo, setTeamTwo] = useState("")
+  const [date, setDate] = useState("")
+
+  const onFixtureSubmit = (e) => {
+    e.preventDefault()
+    addFixture({
+      teamOne,
+      teamTwo,
+      date
+    })
+
+    setTeamOne("")
+    setTeamTwo("")
+    setDate("")
 
   }
+
+  // #####################################
 
   const {isAuth} = useGetUserInfo()
 
@@ -90,38 +115,39 @@ export default function AddMatch() {
     <div className="add-match">
       <div className="container">
         <h1>ADD MATCH</h1>
+        <h3>Submit Results Here</h3>
         <form id="match-form" className="add-match-data" onSubmit={onSubmit}>
-            <div className="match-input-sections">
-              <label>Home Team</label>
-              <input
-                type="text"
-                placeholder="Type Team Name Here"
-                value={homeTeam}
-                required
-                onChange={(e) => setHomeTeam(e.target.value)}
-              />
-            </div>
-            <div className="match-input-sections">
-              <label>Home Goals</label>
-              <input
-                type="number"
-                placeholder="# Of Goals Here"
-                value={homeGoals}
-                required
-                onChange={(e) => setHomeGoals(e.target.valueAsNumber)} 
-              />
-            </div>
-            <div className="match-input-sections">
-              <label>Away Team</label>
-              <input
-                type="text"
-                placeholder="Type Team Name Here"
-                value={awayTeam}
-                required
-                onChange={(e) => setAwayTeam(e.target.value)}
-              />
-            </div>
-            <div className="match-input-sections">
+          <div className="match-input-sections">
+            <label>Home Team</label>
+            <input
+              type="text"
+              placeholder="Type Team Name Here"
+              value={homeTeam}
+              required
+              onChange={(e) => setHomeTeam(e.target.value)}
+            />
+          </div>
+          <div className="match-input-sections">
+            <label>Home Goals</label>
+            <input
+              type="number"
+              placeholder="# Of Goals Here"
+              value={homeGoals}
+              required
+              onChange={(e) => setHomeGoals(e.target.valueAsNumber)}
+            />
+          </div>
+          <div className="match-input-sections">
+            <label>Away Team</label>
+            <input
+              type="text"
+              placeholder="Type Team Name Here"
+              value={awayTeam}
+              required
+              onChange={(e) => setAwayTeam(e.target.value)}
+            />
+          </div>
+          <div className="match-input-sections">
             <label>Away Goals</label>
             <input
               type="number"
@@ -130,9 +156,50 @@ export default function AddMatch() {
               required
               onChange={(e) => setAwayGoals(e.target.valueAsNumber)}
             />
-            </div>
+          </div>
         </form>
-          <button type="submit" form="match-form" className={`${"btn--medium"} ${"btn--outline"}`}>Add Match Data</button>
+        <button type="submit" form="match-form" className={`${"btn--medium"} ${"btn--outline"}`}>Add Match Data </button>
+      </div>
+      {/* ############## Fixture Section ####################### */}
+      <div className="container">
+        <h1>ADD FIXTURE</h1>
+        <h3>Add Fixtures To Schedule</h3>
+        <form
+          id="fixture-form"
+          className="add-fixture-data"
+          onSubmit={onFixtureSubmit}
+        >
+          <div className="fixture-input-sections">
+            <label>Home Team</label>
+            <input
+              type="text"
+              placeholder="Type Team Name Here"
+              value={teamOne}
+              required
+              onChange={(e) => setTeamOne(e.target.value)}
+            />
+          </div>
+          <div className="fixture-input-sections">
+            <label>Away Team</label>
+            <input
+              type="text"
+              placeholder="Type Team Name Here"
+              value={teamTwo}
+              required
+              onChange={(e) => setTeamTwo(e.target.value)}
+            />
+          </div>
+          <div className="fixture-input-sections">
+            <label>Date</label>
+            <input
+              type="datetime-local"
+              value={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+        </form>
+        <button type="submit" form="fixture-form" className={`${"btn--medium"} ${"btn--outline"}`}>Add Fixture</button>
       </div>
     </div>
   );

@@ -1,0 +1,55 @@
+.add-fixture-data{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    grid-gap: 10px;
+    font-size: 20px;
+    width: 70vw;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.fixture-input-sections {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 25vw;
+    white-space: nowrap;
+}
+
+.add-fixture-data input  {
+    margin-bottom: 20px;
+    background-color: gray;
+    font-size: 15px;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.fixture-input-sections label {
+    background-color: rgb(94, 26, 126);
+    border-radius: 5px;
+}
+
+.add-fixture-data ::placeholder {
+    color: #3d3d3d;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 720px) {
+    .add-fixture-data {
+        grid-template-columns: repeat(1,auto);
+    }
+    .fixture-input-sections {
+        width: 45vw;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .add-fixture-data input {
+        font-size: 12px;
+    }
+
+    .add-fixture-data ::placeholder {
+        font-size: 10px;
+    }
+}
