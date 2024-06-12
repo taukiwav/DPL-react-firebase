@@ -17,6 +17,18 @@
     font-size: 20px;
 }
 
+.table-club {
+    display: flex;
+    align-items: center;
+}
+
+.table-club-img {
+    justify-content: center;
+    width: 35px;
+    padding-right: 5px;
+    object-fit: contain;
+}
+
 .table-container {
     background-color: #242424;
     border-radius: 10px;
@@ -79,5 +91,11 @@
 @media screen and (max-width: 760px) {
     .table {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .table {
+        font-size: 9px;
     }
 }

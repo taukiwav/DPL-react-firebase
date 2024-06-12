@@ -88,7 +88,7 @@ export default function Table() {
             {teams.map((team,index) => (
               <tr key={team.id}>
                 <td className="table-position">{index + 1}</td>
-                <td className="table-club">{team.teamName}</td>
+                <td className="table-club"><img src={team.badge} alt="" className="table-club-img"/>{`${team.teamName}`}</td>
                 <td className="table-numbers">{team.played}</td>
                 <td className="table-numbers">{team.wins}</td>
                 <td className="table-numbers">{team.draws}</td>
