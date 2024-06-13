@@ -1,7 +1,7 @@
 .fixtures {
     display: flex;
     flex-direction: column;
-    height: 90vh;
+    height: auto;
     align-items: center;
     padding-top: 70px;
     /* justify-content: center; */
@@ -38,24 +38,41 @@
     border-spacing: 0px 15px;
 }
 
+.fixtures-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.fixtures-club-img {
+    width: 50px;
+}
+
 .vs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 30px;
     background-color: #fff;
     color: black;
     border-radius: 10px;
-    width: 10%;
-    text-align: center;
+    white-space: nowrap;
+    margin: 0 10px 0 10px;
 }
 
 .team-one {
-    text-align: right;
-    padding-right: 15px;
-    width: 45%;
+    display: flex;;
+    align-items: center;
+    justify-content: flex-end;
+    white-space: nowrap;
 }
 
 .team-two {
-    text-align: left;
-    padding-left: 15px;
-    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
 }
 
 
@@ -73,5 +90,18 @@
 @media screen and (max-width:720px) {
     .fixtures {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .fixtures-club-img {
+        width: 30px;
+    }
+    .fixtures {
+        font-size: 9px;
+    }
+    .vs {
+        width: 45px;
+        height: 20px;
     }
 }

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../App.css"
-import "./Results.css"
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../config/firebase-config";
+import "../App.css"
+import "./Results.css"
 
 export default function Results() {
   const [groupedMatches, setGroupedMatches] = useState({})
@@ -36,20 +36,56 @@ export default function Results() {
     fetchMatches()
   },[])
 
+  // Adding Team Logos
+
+  const [teamLogos, setTeamLogos] = useState({})
+
+  useEffect(() => {
+    const fetchTeamLogos = async () => {
+      const logosSnapshot = await getDocs(collection(db,"teams"))
+      const logos = {}
+      logosSnapshot.forEach(doc => {
+        logos[doc.id] = doc.data().badge
+      })
+      setTeamLogos(logos)
+    }
+    fetchTeamLogos()
+  },[])
+
   return (
     <div className="results">
       <div className="results-container">
         <h1>Results</h1>
-        {Object.keys(groupedMatches).map(date => (
+        {Object.keys(groupedMatches).map((date) => (
           <div key={date}>
             <h2>{date}</h2>
             <table className="results-contents">
               <tbody>
-                {groupedMatches[date].map(match => (
-                  <tr className="result-row" key={match.id}>
-                    <td className="home-team">{match.homeTeam}</td>
-                    <td className="score">{match.homeGoals} - {match.awayGoals}</td>
-                    <td className="away-team">{match.awayTeam}</td>
+                {groupedMatches[date].map((match) => (
+                  <tr key={match.id}>
+                    <td colSpan="3">
+                      <div className="results-row">
+                        <div className="home-team">
+                          {match.homeTeam}
+                          <img
+                            src={teamLogos[match.homeTeam]}
+                            alt=""
+                            className="results-club-img"
+                          />
+                        </div>
+                        <div className="score">
+                          {match.homeGoals} - {match.awayGoals}
+                        </div>
+                        <div className="away-team">
+                          <img
+                            src={teamLogos[match.awayTeam]}
+                            alt=""
+                            className="results-club-img"
+                          />
+                          {match.awayTeam}
+                        </div>
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import "./Table.css"
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../config/firebase-config";
+import "../App.css";
+import "./Table.css";
 
 export default function Table() {
   const [played,setPlayed] = useState("Played")
@@ -88,7 +88,7 @@ export default function Table() {
             {teams.map((team,index) => (
               <tr key={team.id}>
                 <td className="table-position">{index + 1}</td>
-                <td className="table-club"><img src={team.badge} alt="" className="table-club-img"/>{`${team.teamName}`}</td>
+                <td className="table-club"><img src={team.badge} alt="" className="table-club-img"/>{team.teamName}</td>
                 <td className="table-numbers">{team.played}</td>
                 <td className="table-numbers">{team.wins}</td>
                 <td className="table-numbers">{team.draws}</td>
