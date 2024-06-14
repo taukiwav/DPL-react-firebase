@@ -46,8 +46,8 @@
 }
 
 .clubs-emp:hover {
-    -webkit-filter: drop-shadow(5px 10px 20px #fffb2b);
-    filter: drop-shadow(5px 10px 20px #fffb2b);
+    -webkit-filter: drop-shadow(5px 10px 20px #c91515);
+    filter: drop-shadow(5px 10px 20px #c91515);
 }
 
 .clubs-int:hover {
