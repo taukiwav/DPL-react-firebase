@@ -7,22 +7,12 @@
 }
 
 .home,
-.stats,
 .highlights {
     display: flex;
     height: 90vh;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-}
-
-.stats {
-    background-image: url(assets/images/img-4.jpg);
-    background-position: top;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: #fff;
-    font-size: 100px;
 }
 
 .highlights {

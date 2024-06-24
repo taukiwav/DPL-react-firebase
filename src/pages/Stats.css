@@ -1,0 +1,43 @@
+.stats {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(../assets/images/img-4.jpg);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+.stats-container {
+    background-color: #242424;
+    width: 90vw;
+    padding: 15px;
+}
+
+.stats-header {
+    font-size: 80px;
+}
+.stats-table {
+    width: 100%;
+    font-size: 20px;
+}
+
+.stats-table thead {
+    text-align: left;
+}
+
+.stats-table th {
+    background-color: #181818;
+}
+
+.stats-table {
+    border-collapse: collapse;
+}
+
+.stats-table tr {
+    border-bottom: 2px solid rgb(29,27,27);
+}
