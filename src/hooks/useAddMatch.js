@@ -10,7 +10,9 @@ export const useAddMatch = () => {
         homeTeam,
         homeGoals,
         awayTeam,
-        awayGoals
+        awayGoals,
+        homePlayerStats,
+        awayPlayerStats
     }) => {
         await addDoc(matchCollectionRef,{
             userID,
@@ -18,6 +20,8 @@ export const useAddMatch = () => {
             homeGoals,
             awayTeam,
             awayGoals,
+            homePlayerStats,
+            awayPlayerStats,
             createdAt: serverTimestamp()
         })
     }
