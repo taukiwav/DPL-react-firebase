@@ -107,14 +107,14 @@ export const useAddPlayers = () => {
     //   { id: "Oliver Sonne", goals: 0, assists: 0, yellow: 0, red: 0 }
     // ];
 
-    const teamId = "Test Team 1"
+    // const teamId = "Test Team 1"
 
-    const players = [
-        { id: "Neymar Jr.", goals: 0, assists: 0, yellow: 0, red: 0 },
-        { id: "Bernardo Silva", goals: 0, assists: 0, yellow: 0, red: 0 },
-        { id: "Kevin De Bruyne", goals: 0, assists: 0, yellow: 0, red: 0 },
-        { id: "Mohamed Salah", goals: 0, assists: 0, yellow: 0, red: 0 }
-    ];
+    // const players = [
+    //     { id: "Neymar Jr.", goals: 0, assists: 0, yellow: 0, red: 0 },
+    //     { id: "Bernardo Silva", goals: 0, assists: 0, yellow: 0, red: 0 },
+    //     { id: "Kevin De Bruyne", goals: 0, assists: 0, yellow: 0, red: 0 },
+    //     { id: "Mohamed Salah", goals: 0, assists: 0, yellow: 0, red: 0 }
+    // ];
 
 
     // const teamId = "Test Team 2"
@@ -124,6 +124,13 @@ export const useAddPlayers = () => {
     //     { id: "Erling Haaland", goals: 0, assists: 0, yellow: 0, red: 0 },
     //     { id: "Cristiano Ronaldo", goals: 0, assists: 0, yellow: 0, red: 0 }
     // ];
+
+    const teamId = "Emperors Alliance"
+
+    const players = [
+      { id: "Lionel Messi", goals: 0, assists: 0, yellow: 0, red: 0 },
+      { id: "Rafael Leão", goals: 0, assists: 0, yellow: 0, red: 0 }
+    ];
 
     
     const batchAddPlayers = async () => {
