@@ -32,7 +32,7 @@ export default function Stats() {
   },[])
 
   const handleSort = (criteria) => {
-    const order = sortCriteria === criteria && sortOrder === 'asc' ? 'desc' : 'asc'
+    const order = sortCriteria === criteria && sortOrder === 'desc' ? 'asc' : 'desc'
     setSortCriteria(criteria)
     setSortOrder(order)
 
