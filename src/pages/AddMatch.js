@@ -8,6 +8,9 @@ import { useGetTeams } from "../hooks/useGetTeams";
 import { useGetUserInfo } from "../hooks/useGetUserInfo";
 import ProcessResult from "../hooks/useProcessResult";
 import ProcessPlayerStats from "../hooks/useProcessPlayerStat";
+import AutoComplete from "../components/AutoComplete";
+import { useGetTeamNames } from "../hooks/useGetTeamNames";
+import { useGetPlayerNames } from "../hooks/useGetPlayerNames";
 import "../App.css";
 import "./AddMatch.css";
 import "./AddFixture.css";
@@ -18,6 +21,9 @@ export default function AddMatch() {
   const { addTeam } = useAddTeam();
 
   const [teams, setTeams] = useState([]);
+
+  const [teamNames, setTeamNames] = useState([])
+  const [playerNames, setPlayerNames] = useState({})
 
   const [homeTeam, setHomeTeam] = useState("");
   const [homeGoals, setHomeGoals] = useState(undefined);
@@ -32,6 +38,26 @@ export default function AddMatch() {
     };
     fetchTeams();
   }, []);
+
+  useEffect(() => {
+    const fetchTeamNames = async () => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const teamsNameData = await useGetTeamNames()
+      setTeamNames(teamsNameData)
+    }
+    fetchTeamNames()
+  }, [])
+
+  useEffect(() => {
+    const fetchPlayerNames = async () => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const playerNameData = await useGetPlayerNames()
+      setPlayerNames(playerNameData)
+    }
+    fetchPlayerNames()
+
+    
+  }, [])
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -101,6 +127,12 @@ export default function AddMatch() {
     ]);
   };
 
+  const removeHomePlayerStat = () => {
+    if (homePlayerStats.length > 0) {
+      setHomePlayerStats(homePlayerStats.slice(0,-1))
+    }
+  }
+
   // Away Player stat
   const [awayPlayerStats, setAwayPlayerStats] = useState([
     { name: "", goals: undefined, assists: undefined, redCard: "No" },
@@ -118,6 +150,12 @@ export default function AddMatch() {
       { name: "", goals: undefined, assists: undefined, redCard: "No" },
     ]);
   };
+
+  const removeAwayPlayerStat = () => {
+    if (awayPlayerStats.length > 0) {
+      setAwayPlayerStats(awayPlayerStats.slice(0,-1))
+    }
+  }
 
   // #####################################
 
@@ -160,14 +198,7 @@ export default function AddMatch() {
             <div className="add-match-data">
               <div className="match-input-sections">
                 <label className="left-label">Home Team</label>
-                <input
-                  className="left-label"
-                  type="text"
-                  placeholder="Type Team Name Here"
-                  value={homeTeam}
-                  required
-                  onChange={(e) => setHomeTeam(e.target.value)}
-                />
+                <AutoComplete options={teamNames} value={homeTeam} setValue={setHomeTeam} text={"Type Team Here"} inputClass={"left-label"} required={true}/>
               </div>
               <div className="match-input-sections">
                 <label className="right-label">Goals</label>
@@ -184,14 +215,7 @@ export default function AddMatch() {
             <div className="add-match-data">
               <div className="match-input-sections">
                 <label className="left-label">Away Team</label>
-                <input
-                  className="left-label"
-                  type="text"
-                  placeholder="Type Team Name Here"
-                  value={awayTeam}
-                  required
-                  onChange={(e) => setAwayTeam(e.target.value)}
-                />
+                <AutoComplete options={teamNames} value={awayTeam} setValue={setAwayTeam} text={"Type Team Here"} inputClass={"left-label"} required={true}/>
               </div>
               <div className="match-input-sections">
                 <label className="right-label">Goals</label>
@@ -219,25 +243,12 @@ export default function AddMatch() {
               {homePlayerStats.map((player, index) => (
                 <div className="add-stat-data">
                   <div className="player-input-sections">
-                    <input
-                      className="left-label"
-                      type="text"
-                      placeholder="Type Name Here"
-                      value={player.name}
-                      required
-                      onChange={(e) =>
-                        handleHomePlayerStatChange(
-                          index,
-                          "name",
-                          e.target.value
-                        )
-                      }
-                    />
+                    <AutoComplete options={playerNames[homeTeam]} value={player.name} setValue={(value) => handleHomePlayerStatChange(index, "name", value)} text="Type Name Here" inputClass={"left-label"} required={true}/>
                   </div>
                   <div className="player-input-sections">
                     <input
                       type="number"
-                      placeholder="# of Goals"
+                      placeholder="# Here"
                       value={player.goals}
                       required
                       onChange={(e) =>
@@ -252,7 +263,7 @@ export default function AddMatch() {
                   <div className="player-input-sections">
                     <input
                       type="number"
-                      placeholder="# of Assists"
+                      placeholder="# Here"
                       value={player.assists}
                       required
                       onChange={(e) =>
@@ -282,13 +293,15 @@ export default function AddMatch() {
                   </div>
                 </div>
               ))}
-              <button
-                type="button"
-                onClick={addHomePlayerStat}
-                className={`${"btn--medium"} ${"btn--outline"}`}
-              >
-                Add Player +
-              </button>
+              <div className="add-stat-btn-container">
+                <button type="button" onClick={addHomePlayerStat} className={`${"btn--medium"} ${"btn--outline"}`}>
+                  Add Player +
+                </button>
+                <button type="button" onClick={removeHomePlayerStat} className={`${"btn--medium"} ${"btn--outline"}`}>
+                  Remove Player -
+                </button>
+
+              </div>
             </div>
             <div className="add-stat-data-sub">
               <h3>Add Away Stats</h3>
@@ -301,25 +314,12 @@ export default function AddMatch() {
               {awayPlayerStats.map((player, index) => (
                 <div className="add-stat-data">
                   <div className="player-input-sections">
-                    <input
-                      className="left-label"
-                      type="text"
-                      placeholder="Type Name Here"
-                      value={player.name}
-                      required
-                      onChange={(e) =>
-                        handleAwayPlayerStatChange(
-                          index,
-                          "name",
-                          e.target.value
-                        )
-                      }
-                    />
+                    <AutoComplete options={playerNames[awayTeam]} value={player.name} setValue={(value) => handleAwayPlayerStatChange(index, "name", value)} text="Type Name Here" inputClass={"left-label"} required={true}/>
                   </div>
                   <div className="player-input-sections">
                     <input
                       type="number"
-                      placeholder="# of Goals"
+                      placeholder="# Here"
                       value={player.goals}
                       required
                       onChange={(e) =>
@@ -334,7 +334,7 @@ export default function AddMatch() {
                   <div className="player-input-sections">
                     <input
                       type="number"
-                      placeholder="# of Assists"
+                      placeholder="# Here"
                       value={player.assists}
                       required
                       onChange={(e) =>
@@ -364,13 +364,14 @@ export default function AddMatch() {
                   </div>
                 </div>
               ))}
-              <button
-                type="button"
-                onClick={addAwayPlayerStat}
-                className={`${"btn--medium"} ${"btn--outline"}`}
-              >
-                Add Player +
-              </button>
+              <div className="add-stat-btn-container">
+                <button type="button" onClick={addAwayPlayerStat} className={`${"btn--medium"} ${"btn--outline"}`}>
+                  Add Player +
+                </button>
+                <button type="button" onClick={removeAwayPlayerStat} className={`${"btn--medium"} ${"btn--outline"}`}>
+                  Remove Player -
+                </button>
+              </div>
             </div>
           </div>
           {/* ########################################################## */}

@@ -1,0 +1,24 @@
+.autocomplete {
+    display: flex;
+    position: relative;
+}
+
+.autocomplete input {
+    position: relative;
+}
+
+
+.suggestions {
+    position: absolute;
+    list-style: none;
+    z-index: 1;
+    top: 100%;
+    text-align: left;
+    padding-left: 2px;
+    cursor: pointer;
+}
+
+.suggestions li {
+    display: flex;
+    align-items: center;
+}

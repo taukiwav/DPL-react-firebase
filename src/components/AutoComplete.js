@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import "../components/AutoComplete.css"
 
 
-function AutoComplete({options = [], inputValue, text, inputClass, required}) {
-    const [value, setValue] = useState("")
+function AutoComplete({options = [], value, setValue, text, inputClass, required}) {
     const [showSuggestions, setShowSuggestions] = useState(false)
     const suggestions = options.filter(option => option.toLowerCase().includes(value.toLowerCase()))
 
@@ -23,13 +22,11 @@ function AutoComplete({options = [], inputValue, text, inputClass, required}) {
 
     const handleChange = (Event) => {
         setValue(Event.target.value)
-        inputValue(Event.target.value)
     }
 
     const handleSuggestionClick = (suggestion) => {
         setValue(suggestion)
         setShowSuggestions(false)
-        inputValue(suggestion)
     }
 
     return (

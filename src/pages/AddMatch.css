@@ -64,15 +64,34 @@
 
 .add-match-data input {
     background-color:gray;
-    font-size: 15px;
+    font-size: 13px;
+    height: 25px;
+    width: 100%;
     text-align: left;
     border: 1px solid #3d3d3d;
-    width: 100%;
+    padding-left: 2px;
 }
 
 .add-match-data ::placeholder {
     color: #3d3d3d;
     font-size: 13px;
+}
+
+.add-match-data .suggestions {
+    background-color: grey;
+    color: black;
+    width: 20vw;
+    font-size: 13px;
+    border: 2px solid #3d3d3d;
+}
+
+.add-match-data .suggestions :hover {
+    color: black;
+    background-color: rgb(208, 208, 208);
+}
+
+.add-match-data .suggestions li {
+    height: 25px;
 }
 
 .add-match button {
@@ -101,11 +120,6 @@
     align-items: center;
 }
 
-.add-stat-data-sub button {
-    font-size: 8px;
-    white-space: nowrap;
-}
-
 .add-stat-data {
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -114,11 +128,29 @@
     font-size: 17px;
 }
 
+.add-stat-btn-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-gap: 1vw;
+}
+
+.add-stat-btn-container button {
+    width: 90px;
+    padding: 6px;
+    margin-top: 5px;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+.add-stat-data > :first-child {
+    width: 16vw;
+}
+
 .player-input-sections {
     display: flex;
     flex-direction: column;
     text-align: center;
-    width: 10vw;
+    width: 8vw;
     white-space: nowrap;
 }
 
@@ -128,10 +160,14 @@
     font-size: 14px;
 }
 
+.add-stat-labels > :first-child {
+    width: 16vw;
+}
+
 .add-stat-labels label {
     background-color: rgb(54, 179, 213);
     text-align: center;
-    width: 10vw;
+    width: 8vw;
     white-space: nowrap;
 }
 
@@ -147,13 +183,37 @@
 
 .add-stat-data input, select {
     background-color: gray;
-    font-size: 15px;
+    font-size: 12px;
+    height: 23px;
+    width: 100%;
     border: 1px solid #3d3d3d;
+    padding-left: 2px;
 }
 
 .add-stat-data ::placeholder {
     color: #3d3d3d;
     font-size: 11px;
+}
+
+.add-stat-data .suggestions {
+    background-color: grey;
+    color: black;
+    width: 16vw;
+    font-size: 12px;
+    border: 2px solid #3d3d3d;
+}
+
+.add-stat-data .suggestions :hover {
+    color: black;
+    background-color: rgb(208, 208, 208);
+}
+
+.add-stat-data .suggestions :focus {
+    z-index: 4;
+}
+
+.add-stat-data .suggestions li {
+    height: 23px;
 }
 
 @media screen and (max-width: 960px) {
@@ -171,8 +231,12 @@
         font-size: 11px;
     }
 
-    .add-stat-data input, select {
-        font-size: 12px;
+    .add-stat-data input, .add-stat-data .suggestions, select {
+        font-size: 10px;
+    }
+    
+    .add-stat-data input, .add-stat-data .suggestions li, select {
+        height: 21px;
     }
 
     .add-stat-data ::placeholder {
@@ -189,6 +253,14 @@
         font-size: 15px;
     }
 
+    .add-match-data input, .add-match-data .suggestions {
+        font-size: 11px;
+    }
+
+    .add-match-data input, .add-match-data .suggestions li {
+        height: 23px;
+    }
+
     .add-match-data ::placeholder {
         font-size: 11px;
     }
@@ -199,11 +271,50 @@
         font-size: 9px;
     }
 
-    .add-stat-data input, select {
-        font-size: 10px;
+    .add-stat-data input, .add-stat-data .suggestions, select {
+        font-size: 8px;
     }
+
+    .add-stat-data input, .add-stat-data .suggestions li, select {
+        height: 19px;
+    }
+
     .add-stat-data ::placeholder {
         font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .add-match-data input, .add-match-data .suggestions {
+        font-size: 9px;
+    }
+
+    .add-match-data input, .add-match-data .suggestions li {
+        height: 21px;
+    }
+
+    .add-match-data ::placeholder {
+        font-size: 9px;
+    }
+
+    /* ########################## */
+
+    .add-stat-labels {
+        font-size: 8px;
+    }
+
+    .add-stat-data input, .add-stat-data .suggestions, select {
+        font-size: 6px;
+    }
+
+    .add-stat-data input, .add-stat-data .suggestions li, select {
+        height: 17px;
+    }
+
+    .add-stat-btn-container button {
+        font-size: 6px;
+        padding: 4px;
+        width: 70px;
     }
 }
 
@@ -221,8 +332,12 @@
         font-size: 10px;
     }
 
-    .add-match-data input {
-        font-size: 10px;
+    .add-match-data input, .add-match-data .suggestions {
+        font-size: 6px;
+    }
+
+    .add-match-data input, .add-match-data .suggestions li {
+        height: 18px;
     }
 
     .add-match-data ::placeholder {
@@ -235,8 +350,12 @@
         font-size: 6px;
     }
 
-    .add-stat-data input, select {
-        font-size: 6px;
+    .add-stat-data input, .add-stat-data .suggestions, select {
+        font-size: 5px;
+    }
+
+    .add-stat-data input, .add-stat-data .suggestions li, select {
+        height: 16px;
     }
 
     .add-stat-data ::placeholder {
