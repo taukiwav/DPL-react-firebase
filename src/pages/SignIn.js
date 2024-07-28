@@ -32,22 +32,17 @@ export default function SignIn() {
     <div className="sign-in">
       <div className="sign-in-container">
         <h1>SIGN IN</h1>
-        <p>Sign in with Google to add match data</p>
+        <p>Sign in with Google to Access Admin</p>
         <Button
           className="login-btn"
           buttonStyle="btn--alt"
           buttonSize="btn--large"
           onClick={signInWithGoogle}
         >
-          Sign in with Google
+          Sign In  <i class="fa-brands fa-google"/>
         </Button>
-
       </div>
-
-
-
     </div>
-
-  )
+  );
 
 }
