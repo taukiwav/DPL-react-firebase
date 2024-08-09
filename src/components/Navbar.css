@@ -29,6 +29,104 @@
     align-items: center;
 }
 
+/* User Signed In Container */
+.navbar-signin-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    min-width: 110px;
+}
+
+.navbar-button-container button {
+    padding: 5px;
+    font-size: 1.2rem;
+    width: 100px;
+}
+
+.navbar-signin-container button {
+    padding: 5px;
+    font-size: 1.2rem;
+    width: 100px;
+}
+
+.navbar-profile {
+    display: flex;
+    position: relative;
+    color: white;
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.nav-profile-photo {
+    width: 35px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.nav-user-submenu {
+    display: none;
+    position: absolute;
+    list-style: none;
+    top: 100%;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-submenu-item {
+    padding: 5px;
+    width: 100%;
+    border-top: 1px solid #2f2f2f;
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.nav-submenu-button {
+    padding: 5px;
+}
+
+.nav-submenu-item:hover {
+    background-color: white;
+    transition: all 0.2s ease-out;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.nav-submenu-item:hover .nav-admin-link {
+    color: black;
+}
+
+.nav-admin-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.navbar-profile:hover + .nav-user-submenu,
+.navbar-signin-container:hover .nav-user-submenu,
+.navbar-signin-container:hover {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-signin-container:hover  .nav-user-submenu,
+.navbar-signin-container:hover {
+    background-color: #242424;
+    box-shadow: 5px 3px 3px black;
+}
+
+.nav-item .nav-profile-photo {
+    margin-right: 5px;
+}
+/* ######################### */
+
 .fa-typo3 {
     margin-left: 0.5rem;
     font-size: 1.8rem;
@@ -36,13 +134,13 @@
 
 .nav-menu {
     display: grid;
-    grid-template-columns: repeat(8, auto);/* was 4 but adjusted to 8 for number of items*/
-    grid-gap: 10px;
+    grid-template-columns: repeat(9, auto);/* was 4 but adjusted to 8 for number of items*/
+    grid-gap: 9px;
     list-style: none;
     text-align: center;
     width: 60vw;
     justify-content: end;
-    margin-right: 2rem;
+    margin-right: 1.7rem;
 }
 
 .nav-item {
@@ -86,6 +184,24 @@
     .nav-links {
         padding: 0.5rem 0.5rem;
     }
+
+    /* ############### */
+
+    .navbar-profile {
+        font-size: 1rem;
+    }
+
+    .navbar-button-container button {
+        font-size: 1rem;
+    }
+
+    .navbar-signin-container button {
+        font-size: 1rem;
+    }
+
+    .nav-admin-link {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (max-width: 960px) {
@@ -116,7 +232,7 @@
 
     .nav-links {
         text-align: center;
-        padding: 2rem;
+        padding: 1.5rem;
         width: 100%;
         height: 0;
         display: table;
@@ -153,11 +269,11 @@
     .nav-links-mobile {
         display: block;
         text-align: center;
-        margin: 2rem auto;
+        margin: 1.2rem auto;
         border-radius: 4px;
         width: 80%;
         text-decoration: none;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         background-color: transparent;
         color: #fff;
         padding: 14px 20px;

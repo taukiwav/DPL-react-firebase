@@ -22,30 +22,46 @@ function Navbar() {
   }
 
   const navigate = useNavigate()
-  const {isAuth} = useGetUserInfo()
+  const {isAuth, profilePhoto, name} = useGetUserInfo()
 
   const NavBarButton = () => {
     if (!isAuth) {
       return (
         button && (
-          <Button
-            linkTo= "/sign-in"
-            buttonStyle="btn--outline"
-          >
-            Sign in
-          </Button>
+          <div className='navbar-button-container'>
+            <Button
+              linkTo= "/sign-in"
+              buttonStyle="btn--outline"
+              >
+              Sign in
+            </Button>
+          </div>
         )
       )
     }
     if (isAuth) {
       return (
         button && (
-          <Button
-            onClick={signUserOut}
-            buttonStyle="btn--outline"
-          >
-            Sign out
-          </Button>
+          <div className="navbar-signin-container">
+            <div className="navbar-profile">
+              <p>
+                {name.split(" ")[0]}
+                <img src={profilePhoto} alt="" className="nav-profile-photo" />
+              </p>
+            </div>
+            <ul className='nav-user-submenu'>
+              <li className='nav-submenu-item'>
+              <Link className="nav-admin-link" to="/add-match">
+                Add Match
+              </Link>
+              </li>
+              <li className='nav-submenu-button'>
+              <Button onClick={signUserOut} buttonStyle="btn--outline">
+                Sign out
+              </Button>
+              </li>
+            </ul>
+          </div>
         )
       );
     }
@@ -67,6 +83,12 @@ function Navbar() {
     }
     if (isAuth) {
       return (
+        <>
+        <li className='nav-item'>
+          <Link to="/add-match" className='nav-links-mobile' onClick={closeMobileMenu}>
+            Add Match
+          </Link>
+        </li>
         <li className="nav-item">
           <Link
             className="nav-links-mobile"
@@ -75,9 +97,11 @@ function Navbar() {
               closeMobileMenu()
             }}
           >
+            <img src={profilePhoto} alt='' className='nav-profile-photo'/>
             Sign out
           </Link>
         </li>
+        </>
       );
     }
   }
