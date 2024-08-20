@@ -44,8 +44,14 @@
     align-items: center;
 }
 
-.fixtures-club-img {
+.fixtures-team-one-club-img {
     width: 50px;
+    margin-left: 5px;
+}
+
+.fixtures-team-two-club-img {
+    width: 50px;
+    margin-right: 5px;
 }
 
 .vs {
@@ -89,12 +95,15 @@
 
 @media screen and (max-width:720px) {
     .fixtures {
-        font-size: 12px;
+        font-size: 11px;
     }
 }
 
 @media screen and (max-width:500px) {
-    .fixtures-club-img {
+    .fixtures-team-one-club-img {
+        width: 30px;
+    }
+    .fixtures-team-two-club-img {
         width: 30px;
     }
     .fixtures {

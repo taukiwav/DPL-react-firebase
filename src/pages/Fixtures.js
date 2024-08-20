@@ -72,7 +72,7 @@ export default function Fixtures() {
                         <img
                           src={teamLogos[fixture.teamOne]}
                           alt=""
-                          className="fixtures-club-img"
+                          className="fixtures-team-one-club-img"
                         />
                       </div>
                       <div className="vs">vs</div>
@@ -80,14 +80,11 @@ export default function Fixtures() {
                         <img
                           src={teamLogos[fixture.teamTwo]}
                           alt=""
-                          className="fixtures-club-img"
+                          className="fixtures-team-two-club-img"
                         />
                         {fixture.teamTwo}
                       </div>
                     </div>
-                    {/* <td className="team-one">{fixture.teamOne}<img src={teamLogos[fixture.teamOne]} alt='' className='fixtures-club-img'/></td>
-                    <td className="vs">vs</td>
-                    <td className="team-two"><img src={teamLogos[fixture.teamTwo]} alt='' className='fixtures-club-img'/>{fixture.teamTwo}</td> */}
                   </tr>
                 ))}
               </tbody>

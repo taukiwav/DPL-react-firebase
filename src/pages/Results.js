@@ -70,7 +70,7 @@ export default function Results() {
                           <img
                             src={teamLogos[match.homeTeam]}
                             alt=""
-                            className="results-club-img"
+                            className="results-home-team-club-img"
                           />
                         </div>
                         <div className="score">
@@ -80,7 +80,7 @@ export default function Results() {
                           <img
                             src={teamLogos[match.awayTeam]}
                             alt=""
-                            className="results-club-img"
+                            className="results-away-team-club-img"
                           />
                           {match.awayTeam}
                         </div>
